@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="calculator">
+    <h1>Calculator</h1>
+
+    <form method="post" action="/" class="calculator-form">
+      <input type="hidden" name="current" value="{{CURRENT_STATE}}">
+      <input type="hidden" name="first" value="{{FIRST_STATE}}">
+      <input type="hidden" name="operator" value="{{OPERATOR_STATE}}">
+      <input type="hidden" name="start_new" value="{{START_NEW_STATE}}">
+
+      <div class="display">
+        <div class="display-expression">{{EXPRESSION}}</div>
+        <div class="display-value">{{DISPLAY}}</div>
+      </div>
+
+      <div class="buttons">
+        <button type="submit" class="special" name="action" value="clear">AC</button>
+        <button type="submit" class="special" name="action" value="sign">+/-</button>
+        <button type="submit" class="special" name="action" value="percent">%</button>
+        <button type="submit" class="operator {{DIVIDE_SELECTED}}" name="action" value="operator:/">÷</button>
+
+        <button type="submit" name="action" value="digit:7">7</button>
+        <button type="submit" name="action" value="digit:8">8</button>
+        <button type="submit" name="action" value="digit:9">9</button>
+        <button type="submit" class="operator {{MULTIPLY_SELECTED}}" name="action" value="operator:*">×</button>
+
+        <button type="submit" name="action" value="digit:4">4</button>
+        <button type="submit" name="action" value="digit:5">5</button>
+        <button type="submit" name="action" value="digit:6">6</button>
+        <button type="submit" class="operator {{SUBTRACT_SELECTED}}" name="action" value="operator:-">−</button>
+
+        <button type="submit" name="action" value="digit:1">1</button>
+        <button type="submit" name="action" value="digit:2">2</button>
+        <button type="submit" name="action" value="digit:3">3</button>
+        <button type="submit" class="operator {{ADD_SELECTED}}" name="action" value="operator:+">+</button>
+
+        <button type="submit" class="zero" name="action" value="digit:0">0</button>
+        <button type="submit" name="action" value="decimal">.</button>
+        <button type="submit" class="equals" name="action" value="equals">=</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

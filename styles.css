@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at 82% 25%, rgb(91 0 255 / 27%), transparent 35%),
+    radial-gradient(ellipse at 25% 60%, rgb(0 110 255 / 22%), transparent 42%),
+    #030b25;
+  color: #d7edff;
+  font-family: Arial, sans-serif;
+}
+
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-image: radial-gradient(rgb(54 117 255 / 35%) 1px, transparent 1px);
+  background-size: 28px 28px;
+  content: "";
+  mask-image: linear-gradient(90deg, transparent, black, transparent);
+  opacity: 0.18;
+}
+
+.calculator {
+  width: min(400px, 100%);
+  padding: 18px;
+  border: 1px solid transparent;
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, rgb(5 21 51 / 96%), rgb(3 12 36 / 98%)) padding-box,
+    linear-gradient(125deg, #25d9ff, #2457a9 48%, #bd45ff) border-box;
+  box-shadow:
+    0 0 24px rgb(0 196 255 / 22%),
+    0 0 80px rgb(83 42 255 / 18%),
+    inset 0 0 24px rgb(16 113 209 / 12%);
+}
+
+h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.display {
+  min-width: 0;
+  height: 96px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: hidden;
+  border: 1px solid #315987;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #102746, #06132f 70%);
+  box-shadow: inset 0 0 18px rgb(0 0 0 / 45%);
+  color: #12eaff;
+  font-family: "Courier New", monospace;
+  font-size: clamp(30px, 9vw, 54px);
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgb(0 234 255 / 70%);
+  white-space: nowrap;
+}
+
+.display-expression {
+  min-height: 20px;
+  color: #87cbdc;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-shadow: none;
+}
+
+.display-value {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+button {
+  height: 58px;
+  border: 1px solid #263f68;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #102442, #0b1a35);
+  box-shadow: inset 0 1px rgb(255 255 255 / 5%);
+  color: #d5eaff;
+  font-size: 25px;
+  cursor: pointer;
+  transition: background 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #18385d, #10254a);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible {
+  outline: 2px solid #51eaff;
+  outline-offset: 3px;
+}
+
+.special {
+  color: #13e8ff;
+  font-size: 21px;
+}
+
+.operator {
+  border-color: #04c9f5;
+  background: linear-gradient(145deg, #0d4c77, #0b2a55);
+  box-shadow:
+    inset 0 0 12px rgb(0 222 255 / 15%),
+    0 0 12px rgb(0 221 255 / 20%);
+  color: #16eaff;
+  font-size: 30px;
+}
+
+.operator:hover {
+  background: linear-gradient(145deg, #126b99, #104273);
+  box-shadow: 0 0 18px rgb(0 221 255 / 45%);
+}
+
+.operator.is-selected {
+  border-color: #9af8ff;
+  background: linear-gradient(145deg, #18cce9, #0879bd);
+  box-shadow:
+    inset 0 0 14px rgb(255 255 255 / 20%),
+    0 0 22px rgb(0 221 255 / 65%);
+  color: #042446;
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+.equals {
+  border-color: #74f5ff;
+  background: linear-gradient(145deg, #19d9f4, #0798db);
+  box-shadow: 0 0 18px rgb(0 222 255 / 45%);
+  color: #042446;
+  font-size: 30px;
+}
+
+.equals:hover {
+  background: linear-gradient(145deg, #5af1ff, #13bcea);
+  box-shadow: 0 0 25px rgb(0 222 255 / 65%);
+}
+
+@media (max-width: 420px) {
+  .calculator {
+    padding: 16px;
+    border-radius: 27px;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  button {
+    height: 58px;
+    border-radius: 13px;
+  }
+
+  .display {
+    height: 100px;
+    padding-inline: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+}
