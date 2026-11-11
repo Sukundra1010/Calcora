@@ -7,3 +7,6 @@ services:
     startCommand: python calculator.py
     healthCheckPath: /
     autoDeploy: true
+    envVars:
+      - key: HOST
+        value: 0.0.0.0

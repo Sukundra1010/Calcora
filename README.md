@@ -18,7 +18,9 @@ The website uses Python, so GitHub Pages cannot host the calculator by itself.
 To publish it for other phones and computers, connect this GitHub repository to
 [Render](https://render.com/) and create a Blueprint from `render.yaml`. Render
 will build and start the Python server and provide a public website URL. Its
-free service may take a short time to wake up after being idle.
+free service may take a short time to wake up after being idle. The Blueprint
+configures the server to listen on Render's network interface and use the port
+provided by the hosting service.
 
 ## Android app
 
