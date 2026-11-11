@@ -1,8 +1,8 @@
 [app]
 
-title = Neon Calculator
-package.name = neoncalculator
-package.domain = org.example
+title = Calcora
+package.name = calcora
+package.domain = com.sukundra1010
 source.dir = .
 source.include_exts = py,png,jpg,kv
 version = 1.0.0
@@ -11,6 +11,7 @@ orientation = portrait
 fullscreen = 0
 android.api = 36
 android.minapi = 23
+android.release_artifact = aab
 
 [buildozer]
 log_level = 2
