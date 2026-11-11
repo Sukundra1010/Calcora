@@ -1,4 +1,5 @@
 import html
+import os
 import re
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from math import isfinite
@@ -222,9 +223,11 @@ class CalculatorHandler(SimpleHTTPRequestHandler):
 
 
 def main():
-    server = ThreadingHTTPServer(("127.0.0.1", 8000), CalculatorHandler)
+    host = os.environ.get("HOST", "127.0.0.1")
+    port = int(os.environ.get("PORT", "8000"))
+    server = ThreadingHTTPServer((host, port), CalculatorHandler)
     server.daemon_threads = True
-    print("Calculator website is running at http://127.0.0.1:8000")
+    print(f"Calculator website is running on {host}:{port}")
     print("Press Ctrl+C to stop the server.")
     try:
         server.serve_forever()
